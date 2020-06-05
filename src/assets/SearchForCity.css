@@ -4,29 +4,45 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
+    overflow: auto
 }
 
 .datas {
-  margin-top: 2.5%;
+  padding-top: 1.5%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 4.5%;
 }
+
 
 .welcome {
   height: 50%;
   width: 50%;
-  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   text-align: center;
+  margin: 0 auto;
+  margin-bottom: 10%;
+}
+
+@media screen and (max-width: 450px) {
+  .welcome {
+    margin-bottom: 10%;
+  }
+  .MuiTypography-h2 {
+    font-size: 2.5rem !important;
+  }
+  .MuiTypography-h3 {
+    font-size: 2rem !important;
+  }
 }
 
 .welcome-text {
   color:white;
-  margin-top: 15% !important;
 }
-
 
 
 .form {

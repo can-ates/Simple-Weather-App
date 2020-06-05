@@ -8,7 +8,9 @@ import Rain from '../images/rain.jpg'
 import sun from '../images/sun.jpg'
 import thunderstorm from '../images/thunderstorm.jpg'
 import mist from '../images/mist.jpg'
+import haze from '../images/haze.jpg'
 import moment from 'moment'
+import Flip from 'react-reveal/Flip';
 
 
 
@@ -34,26 +36,31 @@ function CurrentWeather(props) {
     if(weather === 'Mist'){
       weather = mist
     }
+    if(weather === 'Haze'){
+      weather = haze
+    }
     let current = moment.unix(props.city.dt).format('ll')
     
     return (
-    <Card className='current-card' style={{color: 'white !important', width: '30vh', borderRadius: '40%', boxShadow: '1px 10px 101px -8px rgba(0,0,0,1)'}}>
-      <CardContent style={{backgroundImage: `url(${weather})`, 
-                          backgroundRepeat: 'no-repeat',
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center',
-                          textAlign: 'center',
-                          textTransform: 'capitalize'
-                            }}
-                          >
-        <Typography color='primary'  gutterBottom={true}>{props.city.name} {props.city.sys.country}</Typography>
-        <Typography color='primary'>{current}</Typography>
+    <Flip top>
+      <Card className='current-card' style={{color: 'white !important', width: '37vh', borderRadius: '40%', boxShadow: '1px 10px 101px -8px rgba(0,0,0,1)'}}>
+        <CardContent style={{backgroundImage: `url(${weather})`, 
+                            backgroundRepeat: 'no-repeat',
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            textAlign: 'center',
+                            textTransform: 'capitalize'
+                              }}
+                            >
+          <Typography color='primary'  gutterBottom={true}>{props.city.name} {props.city.sys.country}</Typography>
+          <Typography color='primary'>{current}</Typography>
           <br/>
-        <Typography color='primary'>{props.city.main.temp} °C</Typography>
-        <Typography color='primary'>{props.city.weather[0].description}</Typography>
-        
-      </CardContent>
-    </Card>
+          <Typography color='primary'>{props.city.main.temp} °C</Typography>
+          <Typography color='primary'>{props.city.weather[0].description}</Typography>
+          
+        </CardContent>
+      </Card>
+    </Flip>
     )
   }
 

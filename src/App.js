@@ -6,10 +6,9 @@ import {BackgroundProvider} from './context/BackgroundProvider'
 function App() {
   return (
     <BackgroundProvider>
-      <div className="App">
+      
         <div className='container'>
-          <SearchForCity />
-        </div>   
+          <SearchForCity />  
       </div>
     </BackgroundProvider>
   );

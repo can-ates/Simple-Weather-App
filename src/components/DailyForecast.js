@@ -10,6 +10,7 @@ import rain from '../images/rain.jpg'
 import sun from '../images/sun.jpg'
 import thunderstorm from '../images/thunderstorm.jpg'
 import mist from '../images/mist.jpg'
+import Flip from 'react-reveal/Flip';
 
 const DailyForecast = (props) => {
     const [datas, setDatas] = useState(null);
@@ -49,9 +50,9 @@ const DailyForecast = (props) => {
         }
     }
 
-    const showDatas = () => {
+    const showDatas = () => {   
     
-    return (
+        return (
             datas.daily.map((days, i) => {
             
             if(i === 0){
@@ -59,7 +60,8 @@ const DailyForecast = (props) => {
             }
             const backImage = pickImage(days)
             return(
-                <Card key={i} className='daily-card' style={{borderRadius: '30%',boxShadow: ' 1px 10px 101px -8px rgba(0,0,0,1)' }}>
+            <Flip top delay='100'>    
+                <Card key={i} className='daily-card' style={{borderRadius: '42%',width: '41vh', boxShadow: ' 1px 10px 101px -8px rgba(0,0,0,1)' }}>
                 <CardContent className='daily'
                             style={{backgroundImage: `url(${backImage})`, 
                             backgroundRepeat: 'no-repeat',
@@ -70,14 +72,16 @@ const DailyForecast = (props) => {
                             }}
                             >
 
-                    <Typography color='primary'>{moment.unix(days.dt).format('ll')}</Typography>
+                    <Typography color='primary' >{moment.unix(days.dt).format('ll')}</Typography>
                     <br/>
-                    <Typography color='primary'>{days.temp.day} °C</Typography>
+                    <Typography color='primary' >{days.temp.day} °C</Typography>
                     <Typography color='primary'>{days.weather[0].description}</Typography>
                 
                 </CardContent>
                 </Card>
+            </Flip>
             )}))    
+
     }
 
     return (
