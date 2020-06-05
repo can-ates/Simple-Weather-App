@@ -1,0 +1,37 @@
+.components-wrapper {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.datas {
+  margin-top: 2.5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4.5%;
+}
+
+.welcome {
+  height: 50%;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+
+.welcome-text {
+  color:white;
+  margin-top: 15% !important;
+}
+
+
+
+.form {
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+}
+
