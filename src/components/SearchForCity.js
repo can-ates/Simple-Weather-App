@@ -103,7 +103,6 @@ class SearchForCity extends Component {
                 units: 'metric'
             }
         }).then((res) => {
-            console.log(':)')
             this.setState({
                 datas: res.data,
                 isSubmitted: true,
