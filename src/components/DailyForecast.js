@@ -10,7 +10,6 @@ import rain from '../images/rain.jpg'
 import sun from '../images/sun.jpg'
 import thunderstorm from '../images/thunderstorm.jpg'
 import mist from '../images/mist.jpg'
-import Flip from 'react-reveal/Flip';
 
 const DailyForecast = (props) => {
     const [datas, setDatas] = useState(null);
@@ -59,8 +58,7 @@ const DailyForecast = (props) => {
                 return null
             }
             const backImage = pickImage(days)
-            return(
-            <Flip top delay='100'>    
+            return(    
                 <Card key={i} className='daily-card' style={{borderRadius: '42%',width: '41vh', boxShadow: ' 1px 10px 101px -8px rgba(0,0,0,1)' }}>
                 <CardContent className='daily'
                             style={{backgroundImage: `url(${backImage})`, 
@@ -79,7 +77,6 @@ const DailyForecast = (props) => {
                 
                 </CardContent>
                 </Card>
-            </Flip>
             )}))    
 
     }
