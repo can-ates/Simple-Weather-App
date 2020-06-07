@@ -70,21 +70,26 @@ class SearchForCity extends Component {
     now = now.toLocaleString('en-US', { hour: 'numeric', hour12: true })
 
     now = now.split(' ');
-   
+
     const {toggleBackground} = this.context
     
-    if(parseInt(now[0]) >= 5 && now[1] === 'PM' && parseInt(now[0]) <= 12) {
+    
+    if (now[1] === 'PM' && parseInt(now[0]) >= 5 && parseInt(now[0]) < 12) {
       toggleBackground(true)
-      if(parseInt(now[0]) === 12) {
-        toggleBackground(false)
-      }   
-    }
-    else if((parseInt(now[0]) >= 0 || parseInt(now[0]) === 12)  && now[1] === 'AM' && parseInt(now[0]) < 6) {
-      
+    } 
+    else if (now[1] === 'AM'  &&  parseInt(now[0]) === 12){
       toggleBackground(true)
     }
-    else {
-      
+    else if (now[1] === 'AM'  &&  parseInt(now[0]) >= 1 && parseInt(now[0]) < 7){
+      toggleBackground(true)
+    }
+    else if(now[1] === 'AM'   &&  parseInt(now[0]) >= 7 && parseInt(now[0]) < 12 ){
+      toggleBackground(false)
+    }
+    else if(now[1] === 'PM'  &&  parseInt(now[0]) === 12){
+      toggleBackground(false)
+    }
+    else if(now[1] === 'PM'   &&  parseInt(now[0]) > 12 && parseInt(now[0]) < 5 ){
       toggleBackground(false)
     }
     
@@ -108,7 +113,7 @@ class SearchForCity extends Component {
                 units: 'metric'
             }
         }).then((res) => {
-            console.log(':)')
+            
             this.setState({
                 datas: res.data,
                 isSubmitted: true,
